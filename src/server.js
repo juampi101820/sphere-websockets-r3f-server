@@ -8,6 +8,8 @@ const { Server } = require("socket.io");
  * Load environment variables from .env file.
  */
 const clientURLLocalhost = "http://localhost:3000";
+const clientUrlDeploy = "https://sphere-websockets-r3f-client.vercel.app";
+
 const port = 8080;
 
 /**
@@ -16,7 +18,7 @@ const port = 8080;
  */
 const io = new Server({
   cors: {
-    origin: [clientURLLocalhost],
+    origin: [clientURLLocalhost, clientUrlDeploy],
   },
 });
 
