@@ -1,7 +1,7 @@
 "use strict";
 const { Server } = require("socket.io");
 const { handleSocketConnection } = require("./socketManager");
-const { initializeDoorStates } = require("./stateManager");
+const { initializeStates } = require("./stateManager");
 
 const clientURLLocalhost = "http://localhost:3000";
 const clientUrlDeploy = "https://sphere-websockets-r3f-client.vercel.app";
@@ -14,10 +14,10 @@ const io = new Server({
   },
 });
 
-const doorStates = initializeDoorStates();
+const initialStates = initializeStates();
 
 io.listen(port);
 
 io.on("connection", (socket) => {
-  handleSocketConnection(socket, io, doorStates);
+  handleSocketConnection(socket, io, initialStates);
 });

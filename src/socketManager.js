@@ -16,20 +16,19 @@ function handleSocketConnection(socket, io, states) {
 
   // Manejar cambios en el estado de las puertas
   socket.on("change-door-state", (newDoorStates) => {
-    Object.assign(states.doorStates, newDoorStates);
+    Object.assign(states.landLevelState.doorStates, newDoorStates);
     io.emit("update-states", states);
   });
 
   // Manejar cambios en el estado de las monedas
   socket.on("change-coin-state", (newCoinStates) => {
-    Object.assign(states.coinStates, newCoinStates);
+    Object.assign(states.fireLevelState.coinStates, newCoinStates);
     io.emit("update-states", states);
   });
 
-   // Manejar cambios en el estado de los coraziones
-   socket.on("change-heart-state", (newHeartStates) => {
-    console.log("eventos corazon", newHeartStates);
-    Object.assign(states.heartStates, newHeartStates);
+  // Manejar cambios en el estado de los corazones
+  socket.on("change-heart-state", (newHeartStates) => {
+    Object.assign(states.fireLevelState.heartStates, newHeartStates);
     io.emit("update-states", states);
   });
 
