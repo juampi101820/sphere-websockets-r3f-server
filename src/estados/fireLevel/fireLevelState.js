@@ -35,6 +35,16 @@ const fireLevelState = {
     Heart: true,
     Heart001: true,
   },
+  enemyStates: {
+    1: { isDeath: false, life: 300 },
+    2: { isDeath: false, life: 300 },
+    3: { isDeath: false, life: 300 },
+    4: { isDeath: false, life: 300 },
+    5: { isDeath: false, life: 300 },
+    6: { isDeath: false, life: 300 },
+    7: { isDeath: false, life: 300 },
+    8: { isDeath: false, life: 300 },
+  },
 };
 
 module.exports = fireLevelState;
