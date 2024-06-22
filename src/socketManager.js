@@ -39,6 +39,12 @@ function handleSocketConnection(socket, io, states) {
     io.emit("update-states", states);
   });
 
+  // Manejar cambios en el estado de los enemigos de land level
+  socket.on("update-enemy-states", (newEnemyStates) => {
+    Object.assign(states.landLevelState.enemyStates, newEnemyStates);
+    io.emit("update-states", states);
+  });
+
 
   socket.on("disconnect", () => {
     console.log(
